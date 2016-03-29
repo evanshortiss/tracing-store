@@ -1,0 +1,80 @@
+{
+  "method": "GET",
+  "url": "/",
+  "statusCode": 200,
+  "headers": {
+    "host": "127.0.0.1:3000",
+    "connection": "keep-alive",
+    "cache-control": "max-age=0",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+  },
+  "appId": "my-amazing-express-app",
+  "spans": [
+    [
+      {
+        "type": "event",
+        "ts": 1458577006857,
+        "detail": "",
+        "name": "server-receive"
+      }
+    ],
+    [
+      {
+        "type": "span-start",
+        "ts": 1458577006857,
+        "detail": "",
+        "name": "1000ms-delay"
+      },
+      {
+        "type": "event",
+        "ts": 1458577007355,
+        "detail": "halfway there...",
+        "name": "1000ms-delay"
+      },
+      {
+        "type": "span-end",
+        "ts": 1458577007860,
+        "detail": "",
+        "name": "1000ms-delay"
+      }
+    ],
+    [
+      {
+        "type": "span-start",
+        "ts": 1458577007861,
+        "detail": "",
+        "name": "validateSession"
+      },
+      {
+        "type": "span-end",
+        "ts": 1458577008787,
+        "detail": "",
+        "name": "validateSession"
+      }
+    ],
+    [
+      {
+        "type": "span-start",
+        "ts": 1458577008787,
+        "detail": "",
+        "name": "getJson"
+      },
+      {
+        "type": "span-end",
+        "ts": 1458577010728,
+        "detail": "",
+        "name": "getJson"
+      }
+    ],
+    [
+      {
+        "type": "event",
+        "ts": 1458577010734,
+        "detail": "",
+        "name": "server-send"
+      }
+    ]
+  ],
+  "uuid": "94c1f7a8-1e9d-4c76-9963-877fd7240bae"
+}

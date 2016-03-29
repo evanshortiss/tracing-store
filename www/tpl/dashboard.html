@@ -1,0 +1,13 @@
+<md-content layout-padding>
+  <md-list-item class="md-3-line _md-no-proxy ng-scope" ng-repeat="t in dashCtrl.appsList" role="listitem">
+    <div class="md-list-item-text layout-column" layout="column">
+      <h3 class="ng-binding">
+        <a ng-href="#/app/{{t.appId}}">{{t.appId}}</a>
+      </h3>
+      <h4 class="ng-binding">Latest Activity: {{t.lastActive | uiDatetime}}</h4>
+      <!-- <p class="ng-binding">URL Count: {{t.uniqueUrls}}</p>
+      <p class="ng-binding">Trace Count: {{t.traceCount}}</p> -->
+    </div>
+    <md-divider></md-divider>
+  </md-list-item>
+</md-content>

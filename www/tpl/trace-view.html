@@ -1,0 +1,34 @@
+<md-content layout-padding>
+  <section>
+    <md-subheader>Details</md-subheader>
+    <p>
+      {{traceViewCtrl.trace.statusCode}}
+      {{traceViewCtrl.trace.method}}
+      {{traceViewCtrl.trace.url}}
+    </p>
+    <md-divider/>
+  </section>
+
+  <section>
+    <md-subheader>Headers</md-subheader>
+    <div class="code-well">
+      <div flex class="flex" layout="row" ng-repeat="(key, val) in traceViewCtrl.trace.headers">
+        <p flex="30">
+          {{key | kebabCase}}
+        </p>
+        <p flex="70">
+          {{val}}
+        </p>
+      </div>
+    </div>
+    <p></p>
+    <md-divider/>
+  </section>
+
+  <section>
+    <md-subheader>Timing</md-subheader>
+    <md-content class="md-padding">
+      <trace-chart trace=traceViewCtrl.trace></trace-chart>
+    </md-content>
+  </section>
+</md-content>

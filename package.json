@@ -1,0 +1,38 @@
+{
+  "name": "express-tracing-store",
+  "version": "0.2.0",
+  "dependencies": {
+    "body-parser": "~1.0.2",
+    "browserify": "^13.0.0",
+    "case": "^1.4.1",
+    "express": "~4.0.0",
+    "fhlog": "^0.12.1",
+    "get-env": "evanshortiss/get-env#master",
+    "jade": "^1.11.0",
+    "jsonschema": "^1.1.0",
+    "lodash": "^3.10.1",
+    "mongo-utils": "evanshortiss/mongo-utils.git#0.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "istanbul": "0.2.7",
+    "mocha": "^2.3.3",
+    "proxyquire": "0.5.3",
+    "sinon": "^1.17.3",
+    "supertest": "^0.9.2",
+    "wiredep-cli": "^0.1.0"
+  },
+  "main": "application.js",
+  "scripts": {
+    "serve": "env NODE_PATH=. node index.js",
+    "test": "npm run unit && npm run coverage && npm run check-coverage",
+    "coverage": "env NODE_PATH=. istanbul cover -x *.test.js _mocha test/**/*.js",
+    "check-coverage": "istanbul check-coverage",
+    "unit": "env NODE_PATH=. mocha test/unit/**/*.js",
+    "accept": "env NODE_PATH=. mocha $(find . -path '*/test/accept*' -name '*.test.js')",
+    "jshint": "jshint lib/**/*.js lib/*.js application.js",
+    "linelint": "linelint lib/**/*.js lib/*.js application.js",
+    "lint": "npm run linelint && npm run jshint",
+    "start": "env NODE_PATH=. node application.js"
+  }
+}

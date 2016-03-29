@@ -1,0 +1,25 @@
+{
+  "name": "express-tracing-store",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Evan Shortiss <evanshortiss@gmail.com>"
+  ],
+  "license": "Copyright Evan Shortiss 2016",
+  "homepage": "https://github.com/evanshortiss/express-tracing-store",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.6",
+    "angular-route": "^1.5.2",
+    "angular-material-icons": "^0.7.0",
+    "d3": "^3.5.16"
+  }
+}

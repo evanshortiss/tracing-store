@@ -1,0 +1,6 @@
+{
+  "directory": "www/bower",
+  "scripts": {
+    "postinstall": "./node_modules/.bin/wiredep -s ./views/layout.jade -i ../www/"
+  }
+}

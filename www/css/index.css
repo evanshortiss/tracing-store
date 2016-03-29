@@ -1,0 +1,27 @@
+
+.text-error {
+  color: rgba(200, 25, 25, 0.8) !important;
+}
+.text-ok {
+  color: rgba(80, 180, 80, 0.8) !important;
+}
+.text-warn {
+  color: rgba(200, 115, 10, 0.8) !important;
+}
+
+.code {
+  font-family: Courier;
+}
+
+.code-well {
+  padding: 1em 2em;
+  font-family: Courier;
+  border-radius: 0.45em;
+  background: rgba(200, 200, 200, 0.5);
+  box-shadow: inset 0px 0px 1em #bcbcbc;
+}
+
+md-list p {
+  margin: auto !important;
+  text-align: center;
+}
