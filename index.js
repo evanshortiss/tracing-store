@@ -6,8 +6,8 @@ var express = require('express')
   , app = module.exports = express()
   , log = fhlog.get('')
   , path = require('path')
-  , port = env('TRACING_PORT', 3001)
-  , host = env('TRACING_HOST', '0.0.0.0');
+  , port = env('OPENSHIFT_NODEJS_PORT', 3001)
+  , host = env('OPENSHIFT_NODEJS_IP', '0.0.0.0');
 
 // Logging defaults to only write info level logs, can be overwritten by env var
 fhlog.setDefault(
@@ -16,6 +16,8 @@ fhlog.setDefault(
     env('TRACING_LOG_LEVEL', 'INF')
   ]
 );
+
+log.i('starting application');
 
 // Bind routes to our application
 require('lib/routes/trace')(app);
