@@ -27,9 +27,9 @@
     "supertest": "^0.9.2",
     "wiredep-cli": "^0.1.0"
   },
-  "main": "index.js",
+  "main": "application.js",
   "scripts": {
-    "serve": "env NODE_PATH=. node index.js",
+    "serve": "env NODE_PATH=. node application.js",
     "test": "npm run unit && npm run coverage && npm run check-coverage",
     "coverage": "env NODE_PATH=. istanbul cover -x *.test.js _mocha test/**/*.js",
     "check-coverage": "istanbul check-coverage",
