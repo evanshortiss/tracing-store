@@ -8,16 +8,16 @@ html
     if env == 'local'
       // bower:css
       link(rel='stylesheet', href='bower/angular-material/angular-material.css')
-      link(rel='stylesheet', href='bower/angular-material-icons/angular-material-icons.css')
       // endbower
     else
       link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.css')
 
     link(rel='stylesheet', href='css/index.css')
     link(rel='stylesheet', href='css/pace.css')
+    link(rel='stylesheet', href='css/material-palette.css')
 
   body
-    md-toolbar.md-toolbar-tools.md-accent
+    h3.header.mdc-bg-light-blue-800
       span
         a(href="/") Tracing Store
       // fill up the space between left and right area
@@ -35,8 +35,7 @@ html
       script(src='bower/angular-messages/angular-messages.js')
       script(src='bower/angular-material/angular-material.js')
       script(src='bower/angular-route/angular-route.js')
-      script(src='bower/angular-material-icons/angular-material-icons.min.js')
-      script(src='bower/d3/d3.js')
+      script(src='bower/fastclick/lib/fastclick.js')
       // endbower
     else
       script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js')
@@ -45,8 +44,6 @@ html
       script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-messages.min.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-route.min.js')
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js')
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js')
 
     // TODO: separate bundle of our npm dependencies
     // script(src='/js/vendor.js')

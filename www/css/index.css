@@ -9,8 +9,33 @@
   color: rgba(200, 115, 10, 0.8) !important;
 }
 
+.accordion md-content {
+  transition: height 0.3s ease;
+}
+
+h3.header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h3.header {
+  color: #fff;
+  font-weight: 200;
+  margin: 0;
+  padding: 1em;
+  font-style: inherit;
+}
+
 .code {
   font-family: Courier;
+}
+
+.app-view md-grid-tile h2 {
+  color: #fff;
+}
+
+.app-view md-list-item.md-3-line, md-list-item.md-3-line > a.md-no-style {
+  min-height: inherit;
 }
 
 .code-well {
@@ -24,4 +49,12 @@
 md-list p {
   margin: auto !important;
   text-align: center;
+}
+
+trace-chart p {
+  width: 0;
+  font-size: 0.85em;
+  font-style: italic;
+  height: 0.25em;
+  transition: width 0.3s linear, height 0.5s ease;
 }

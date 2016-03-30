@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 var app = module.exports = angular.module('TracingStore.Filters', []);
 
 app
@@ -10,4 +8,5 @@ app
   .filter('uiPreciseTime', require('./ui-precise-time.filter.js'))
   .filter('kebabCase', require('./kebab-case.filter.js'))
   .filter('sentenceCase', require('./sentence-case.filter.js'))
-  .filter('msToSeconds', require('./ms-seconds.filter.js'));
+  .filter('msToSeconds', require('./ms-seconds.filter.js'))
+  .filter('number', require('./number.filter.js'));

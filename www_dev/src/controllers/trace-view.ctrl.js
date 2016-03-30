@@ -13,6 +13,15 @@ module.exports = function (trace) {
       return span[span.length - 1].ts - span[0].ts;
     };
 
+    vm.getProcessingTime = function () {
+      var e = trace.spans[trace.spans.length - 1][0];
+      var s = trace.spans[0][0];
+
+      return (
+        (e.ts - s.ts) / 1000
+      ).toFixed(4);
+    };
+
     vm.isSingleEvent = function (span) {
       return span.length === 1;
     };

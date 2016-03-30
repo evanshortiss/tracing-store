@@ -20,9 +20,7 @@ fhlog.setDefault(
 // Bind routes to our application
 require('lib/routes/trace')(app);
 require('lib/routes/js')(app);
-app.use(function (req, res, next) {
-  setTimeout(next, 100);
-})
+
 app.set('view engine', 'jade');
 app.get('/', function (req, res) {
   res.render('index', {

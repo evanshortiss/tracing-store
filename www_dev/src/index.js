@@ -1,7 +1,6 @@
 'use strict';
 
-var angular = require('angular')
-  , Promise = require('bluebird')
+var Promise = require('bluebird')
   , _ = require('lodash')
   , log = require('fhlog').get(__filename);
 
@@ -10,7 +9,6 @@ var angular = require('angular')
 var app = module.exports = angular.module('TracingStore', [
   'ngRoute',
   'ngMaterial',
-  'ngMdIcons',
   require('./services').name,
   require('./filters').name,
   require('./directives').name,

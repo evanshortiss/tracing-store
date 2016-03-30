@@ -1,0 +1,22 @@
+<div class="accordion">
+  <!-- Header section -->
+  <div class="layout-row" layout="row">
+    <div flex="85">
+      <md-subheader>
+        {{name}}
+      </md-subheader>
+    </div>
+    <div flex="15">
+      <md-button class="md-raised md-accent" ng-show="!open" ng-click="toggle()">
+        Show
+      </md-button>
+      <md-button class="md-raised md-accent" ng-show="open" ng-click="toggle()">
+        Hide
+      </md-button>
+    </div>
+  </div>
+
+  <md-content ng-style="{ height: getHeight() }">
+    <ng-transclude></ng-transclude>
+  </md-content>
+</div>

@@ -1,40 +1,67 @@
-<md-content layout-padding>
+<div class="app-view">
 
+  <md-content layout-padding>
 
-  <div flex class="layout-row flex" layout="row">
-    <h4 flex="70">{{appViewCtrl.appInfo.appId}}</h4>
-    <div flex>
-      <p>
-        <small>Traces: {{appViewCtrl.appInfo.traceCount}}</small>
-      </p>
-      <p>
-        <small>Unique URLs: {{appViewCtrl.appInfo.uniqueUrls}}</small>
-      </p>
-    </div>
-  </div>
+    <md-grid-list
+      md-cols-sm="1" md-cols-md="4" md-cols-lg="12" md-cols-gt-lg="12"
+      md-row-height="1:1"
+      md-gutter="8px">
+      <md-grid-tile
+        md-rowspan-lg="3" md-rowspan-md="2"
+        md-colspan-lg="6" md-colspan-md="3"
+        class="mdc-bg-blue-grey-50"
+        md-rowspan="3" md-colspan-lg="6" md-colspan-md="3">
+        <md-content class="mdc-bg-blue-grey-50" style="width: 100%;height: 85%;">
+          <md-list class="flex" flex role="list">
+            <md-list-item ng-href="#/trace/{{t._id}}" class="md-3-line _md-no-proxy ng-scope" ng-repeat="t in appViewCtrl.traces" role="listitem">
+              <div class="md-list-item-text layout-row" layout="row">
+                <p
+                  flex="10"
+                  style="border-radius: 0.25em; color: white;"
+                  ng-class="{
+                    'mdc-bg-deep-orange-A400': t.statusCode === 500,
+                    'mdc-bg-light-green-700': t.statusCode === 200,
+                    'mdc-bg-yellow-800': (t.statusCode !== 200 && t.statusCode !== 500)
+                  }">
+                  {{t.statusCode}}
+                </p>
+                <p flex="15">{{t.method}}</p>
+                <p flex="45" style="text-align: left;">{{t.url}}</p>
+                <p flex>{{appViewCtrl.getStartTime(t) | uiDatetime}}</p>
+              </div>
+              <md-divider></md-divider>
+            </md-list-item>
+          </md-list>
+        </md-content>
+        <md-grid-tile-header>
+          <h3>Recent Requests</h3>
+        </md-grid-tile-header>
+      </md-grid-tile>
+      <md-grid-tile
+        md-rowspan-lg="3" md-rowspan-md="1"
+        md-colspan-lg="3" md-colspan-md="1"
+        class="mdc-bg-orange-400">
+        <h2>{{appViewCtrl.appInfo.uniqueUrls | number}}</h2>
+        <md-tooltip>
+          Number of unique URLs your server has served
+        </md-tooltip>
+        <md-grid-tile-header>
+          <h3>Unique URL Count</h3>
+        </md-grid-tile-header>
+      </md-grid-tile>
+      <md-grid-tile
+        md-rowspan-lg="3" md-rowspan-md="1"
+        md-colspan-lg="3" md-colspan-md="1"
+        class="mdc-bg-light-green-400">
+        <h2>{{appViewCtrl.appInfo.traceCount| number}}</h2>
+        <md-tooltip>
+          Number of requests your server has served
+        </md-tooltip>
+        <md-grid-tile-header>
+          <h3>Requests To Date</h3>
+        </md-grid-tile-header>
+      </md-grid-tile>
+    </md-grid-list>
 
-  <md-divider></md-divider>
-  <md-list class="flex" flex role="list">
-    <md-list-item class="md-3-line _md-no-proxy ng-scope" ng-repeat="t in appViewCtrl.traces" role="listitem">
-      <div class="md-list-item-text layout-row" layout="row">
-        <p
-          flex="10"
-          ng-class="{
-            'text-error': t.statusCode === 500,
-            'text-ok': t.statusCode === 200,
-            'text-warn': (t.statusCode !== 200 && t.statusCode !== 500)
-          }">
-          {{t.statusCode}}
-        </p>
-        <p flex="10">{{t.method}}</p>
-        <p flex="30" style="text-align: left;">{{t.url}}</p>
-        <p flex="20">{{appViewCtrl.getStartTime(t) | uiDatetime}}</p>
-        <p flex="20">{{ appViewCtrl.getTotalTimeForTrace(t) }}</p>
-        <md-button href="#/trace/{{t._id}}" class="md-raised md-accent">
-          View
-        </md-button>
-      </div>
-      <md-divider></md-divider>
-    </md-list-item>
-  </md-list>
-</md-content>
+  </md-content>
+</div>
