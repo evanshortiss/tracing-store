@@ -6,6 +6,8 @@ var express = require('express')
   , app = module.exports = express()
   , log = fhlog.get('')
   , path = require('path')
+  , mbaasApi = require('fh-mbaas-api')
+  , mbaasExpress = mbaasApi.mbaasExpress()
   , port = env('OPENSHIFT_NODEJS_PORT', 3001)
   , host = env('OPENSHIFT_NODEJS_IP', '0.0.0.0');
 
@@ -26,6 +28,9 @@ log.i('starting application');
 // Bind routes to our application
 require('lib/routes/trace')(app);
 require('lib/routes/js')(app);
+
+app.use('/sys', mbaasExpress.sys([]));
+app.use('/mbaas', mbaasExpress.mbaas);
 
 app.set('view engine', 'jade');
 app.engine('jade', require('jade').__express);

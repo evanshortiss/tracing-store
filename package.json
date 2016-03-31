@@ -9,6 +9,7 @@
     "case": "^1.4.1",
     "d3": "^3.5.16",
     "express": "~4.0.0",
+    "fh-mbaas-api": "^5.5.6",
     "fhlog": "^0.12.1",
     "format-number": "^2.0.1",
     "get-env": "evanshortiss/get-env#master",
