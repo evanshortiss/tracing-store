@@ -9,6 +9,10 @@ var express = require('express')
   , port = env('OPENSHIFT_NODEJS_PORT', 3001)
   , host = env('OPENSHIFT_NODEJS_IP', '0.0.0.0');
 
+if (env('FH_PORT')) {
+  port = env('FH_PORT');
+}
+
 // Logging defaults to only write info level logs, can be overwritten by env var
 fhlog.setDefault(
   'level',
@@ -24,6 +28,7 @@ require('lib/routes/trace')(app);
 require('lib/routes/js')(app);
 
 app.set('view engine', 'jade');
+app.engine('jade', require('jade').__express);
 app.get('/', function (req, res) {
   res.render('index', {
     env: env('TRACING_ENV', 'local')
