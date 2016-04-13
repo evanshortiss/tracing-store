@@ -8,12 +8,8 @@ var express = require('express')
   , path = require('path')
   , mbaasApi = require('fh-mbaas-api')
   , mbaasExpress = mbaasApi.mbaasExpress()
-  , port = env('OPENSHIFT_NODEJS_PORT', 3001)
+  , port = env('FH_PORT') || env('OPENSHIFT_NODEJS_PORT', 3001)
   , host = env('OPENSHIFT_NODEJS_IP', '0.0.0.0');
-
-if (env('FH_PORT')) {
-  port = env('FH_PORT');
-}
 
 // Logging defaults to only write info level logs, can be overwritten by env var
 fhlog.setDefault(
@@ -36,7 +32,7 @@ app.set('view engine', 'jade');
 app.engine('jade', require('jade').__express);
 app.get('/', function (req, res) {
   res.render('index', {
-    env: env('TRACING_ENV', 'local')
+    env: env('FH_ENV', 'local')
   });
 });
 
